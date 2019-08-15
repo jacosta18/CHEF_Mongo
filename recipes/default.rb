@@ -21,6 +21,20 @@ apt_repository 'mongodb-org' do
   action :add
 end
 
+directory '/data' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+directory '/data/db' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
 package 'mongodb-org' do
   action :install
   options "--allow-unauthenticated"
